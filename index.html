@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>	
+	<title>距离计算</title>
+	<script type="text/javascript" src="js/distance.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// 获取您的坐标
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(function(position){
+				var _lng = position.coords.longitude;
+				var _lat = position.coords.latitude;
+
+				// 计算距离函数，已经封装 ，，
+				// 第一组lng 和 lat 是定位获得，无需改
+				// 第二组参数  是到达的地址的经纬度 
+				var dis = getDistance({lng : _lng, lat: _lat},{lng : addJson[i]._lng, lat :addJson[i]._lat});
+				
+				// 换算成公里
+				dis = myToFixed(dis / 1000);
+				document.write("你距离目的地" + dis + "公里");
+			})
+		}	
+	</script>
+</body>
+</html>
